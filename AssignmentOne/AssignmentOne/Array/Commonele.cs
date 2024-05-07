@@ -12,6 +12,7 @@ namespace AssignmentOne.Array
         {
             int[] arr = { 1, 2, 3, 4, 5, };
             int[] arr2 = { 1, 2, 3, 4, };
+            string result = "";
           
             for(int i =0; i < arr.Length; i++)
             {
@@ -19,10 +20,11 @@ namespace AssignmentOne.Array
                 {
                     if (arr[i] == arr[j]) { 
                     
-                    Console.WriteLine( "CommonElements" +arr[i]);
+                    result += arr[i]+",";
                     }
                 }
             }
+            Console.WriteLine(result);
 
         }
     }

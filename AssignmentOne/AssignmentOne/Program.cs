@@ -13,6 +13,8 @@ namespace AssignmentOne
           //compressedstring
             Compressed compressed = new Compressed();
             compressed.comstr("jjaaggaaddiisshh");
+
+
             Commonele commonele = new Commonele();
             commonele.commonelement();
 
@@ -37,10 +39,12 @@ namespace AssignmentOne
             Car car = new Car(0);
             car.Drive();
             //fueladded
-            car.Refuel(100);
+            Console.WriteLine("Enter amount for Refuel");
+            int amt = int.Parse(Console.ReadLine());
+            car.Refuel(amt);
             car.Drive();
-         
 
+     Console.ReadKey();
         }
 
 

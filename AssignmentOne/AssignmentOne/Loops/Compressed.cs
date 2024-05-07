@@ -14,7 +14,7 @@ namespace AssignmentOne.Loops
         {
           
             string result = "";
-            int count = 0;
+            int count = 1;
 
             for (int i=0;i<com.Length;i++){
 
@@ -24,11 +24,12 @@ namespace AssignmentOne.Loops
                 }
                 else
                 {
-                   result += com[i];
+                    result += com[i];
+                    result += count;
                     count = 1;
-               }
+                }
 
-        }
+            }
             Console.WriteLine(result);
         }
     }

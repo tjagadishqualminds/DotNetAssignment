@@ -33,14 +33,15 @@ namespace AssignmentOne.Array
                 }
                 count = 1;
             }
+            string result = ""
             for (int i = 0; i < arr.Length; i++)
             {
                 if (arr[i] != -1)
                 {
-                    Console.Write(arr[i]+"\t");
-                    Console.WriteLine();
+                    result += arr[i]+",";
                 }
             }
+            Console.WriteLine(result);
         }
     }
 }
