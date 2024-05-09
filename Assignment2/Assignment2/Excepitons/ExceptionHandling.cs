@@ -18,19 +18,15 @@ namespace Assignment2.Excepitons
                 Console.WriteLine("User details");
                 Console.WriteLine("Enter user id");
                 int id = int.Parse(Console.ReadLine());
-                Console.WriteLine("Enter name");
-                string name = Console.ReadLine();
-                Console.WriteLine(name.ToUpper());
-              if(string.IsNullOrEmpty(name))
-                {
-                    throw new NullReferenceException();
-                }
-            }
-            catch (NullReferenceException ex)
-            {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(" ENTER num1");
+                int num1 = int.Parse(Console.ReadLine());
+                Console.WriteLine(num1/0);
             }
             
+            catch(DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message + "cannot divide by zero");
+            }
             
             catch (FormatException ex)
             {
