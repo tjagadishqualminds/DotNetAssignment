@@ -13,18 +13,24 @@ namespace Assignment2.Excepitons
         {
             try
             {
-            string name = null;
-
-                if (name == null)
+                Console.WriteLine("Enter name");
+                  string name = Console.ReadLine();
+                if(string.IsNullOrEmpty(name))
                 {
                     throw new NullReferenceException();
                 }
+             
+                else
+                {
 
+                Console.WriteLine(name);
+                }
             }
             catch (NullReferenceException ex)
             {
                 Console.WriteLine(ex.Message);
             }
+         
 
         }
     }
