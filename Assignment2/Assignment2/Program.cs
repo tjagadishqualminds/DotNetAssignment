@@ -18,7 +18,20 @@ namespace Assignment2
             ExceptionHandling exception = new ExceptionHandling();
             exception.exception();
 
+            //extensionsmethods
+            ExtensionMethod method = new ExtensionMethod();
+            method.Test1();
+            method.Test2();
+            method.Test3();
 
+            int x = 5;
+            long result = x.Factorial();
+
+            Console.WriteLine(result);
+            string str = "hello world";
+            Console.WriteLine(str.ToProper());
+
+            Console.ReadLine();
 
         }
     }
