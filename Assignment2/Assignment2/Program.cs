@@ -29,10 +29,11 @@ namespace Assignment2
             //exception.exception();
 
             //extensionsmethods
-            //ExtensionMethod method = new ExtensionMethod();
-            //method.Test1();
-            //method.Test2();
-            //method.Test3();
+
+            ExtensionMethod method = new ExtensionMethod();
+            method.Add(10,2);
+            method.Sub(10, 2);
+            method.Multi(10, 2);
 
             //int x = 5;
             //long result = x.Factorial();

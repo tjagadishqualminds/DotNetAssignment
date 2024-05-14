@@ -10,9 +10,9 @@ namespace Assignment2.Extension
     {
 
 
-        public static void Test3(this ExtensionMethod  method  )
+        public static void Multi(this ExtensionMethod  method , int x ,int y  )
         {
-            Console.WriteLine("Method 3");
+            Console.WriteLine(x*y);
         }
         public static long Factorial(this Int32 x)
         {
