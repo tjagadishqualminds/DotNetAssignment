@@ -51,6 +51,10 @@ namespace AssignmentThree
             Circle circle = new Circle();
             circle.Draw();
 
+            //four
+            string input = "abc";
+            Permutation permutation = new Permutation();
+            permutation.GeneratePermutations(input.ToCharArray(), 0);
 
             Console.ReadKey();
 
