@@ -35,8 +35,17 @@ namespace AssignmentThree
             ModifyPersonNametwo( ref method3);
             Console.WriteLine(method.Name);
 
+            //two
+            //variable
+            MethodsTwo methodsTwo = new MethodsTwo();
+            methodsTwo.DoAdd(num);
+            methodsTwo.DoSub(10, 2);
+            methodsTwo.DoMult(10 * 2);
+            methodsTwo.MethodWithPositionalArgs(10, 23);
+            methodsTwo.MethodWithOptionalArgs(10);
+            methodsTwo.MethodWithOptionalArgs(10, 30);
+            methodsTwo.MethodWithNamedArgs(a: 10, b: 20);
 
-  
 
 
             Console.ReadKey();
