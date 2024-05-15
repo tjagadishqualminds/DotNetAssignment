@@ -47,6 +47,10 @@ namespace AssignmentThree
             methodsTwo.MethodWithNamedArgs(a: 10, b: 20);
 
 
+            //three
+            Circle circle = new Circle();
+            circle.Draw();
+
 
             Console.ReadKey();
 
