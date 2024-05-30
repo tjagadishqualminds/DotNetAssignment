@@ -1,30 +1,60 @@
-﻿--scripting creating table
---CREATE TABLE Department(DepartmentId int PRIMARY KEY ,Name VARCHAR(20));
+﻿
 
---CREATE TABLE Role(EmployeeId INT PRIMARY KEY,Role VARCHAR(20),AffectedFrom DATETIME);
+--CREATE DATABASE EmployeeData;
+--use EmployeeData;
 
+--creating tables
 --CREATE TABLE Employee (
---EmployeeId INT,
+--EmployeeId INT IDENTITY(1,1),
 --FirstName VARCHAR(20),
 --LastName VARCHAR(20),
 --Salary Numeric(10,2),
 --JOININGDATE DATETIME,
 --DepartmentId INT,
---CONSTRAINT FK_Employee_Role FOREIGN KEY (EmployeeId) REFERENCES Role(EmployeeId),
+--CONSTRAINT PK_Employee_EmployeeId PRIMARY KEY(EmployeeId),
 --CONSTRAINT FK_Employee_Department FOREIGN KEY (DepartmentId) REFERENCES Department (DepartmentId)
 --);
 
+--INSERT
+--INSERT INTO Employee (FirstName, LastName, Salary, JoiningDate, DepartmentId) VALUES
+--('Monika', 'Arora', 100000.00, '2014-02-20 09:00:00', 2),
+--('Niharika', 'Verma', 80000.00, '2014-06-11 09:00:00', 1),
+--('Vishal', 'Singal', 300000.00, '2014-02-20 09:00:00', 2),
+--('Amitabh', 'Singh', 500000.00, '2014-02-20 09:00:00', 1),
+--('Vivek', 'Bhati', 500000.00, '2014-06-11 09:00:00', 1),
+--('Vipul', 'Diwan', 200000.00, '2014-06-11 09:00:00', 3),
+--('Satish', 'Kumar', 750000.00, '2014-01-20 09:00:00', 3),
+--('Geetika', 'Chauhan', 90000.00, '2014-04-11 09:00:00', 1);
 
---INSERTING DATA IN TABLES
+--SELECT * FROM  Employee;
 
---INSERT INTO Department VALUES(1 ,'Admin'),
---(2,'HR'),
---(3,'Account'),
---(4,'Finance');
+﻿--scripting Department table
+--CREATE TABLE Department
+--(DepartmentId int IDENTITY(1,1),
+--[Name] VARCHAR(20)
+--CONSTRAINT PK_Department_DepartmentId PRIMARY KEY(DepartmentId)
+--);
+
+--INSERT INTO Department([Name]) VALUES('Admin'),
+--('HR'),
+--('Account'),
+--('Finance');
 
 --SELECT * FROM Department;
 
---INSERT INTO Role VALUES (1,'Manager',GETDATE()),
+--CREATE TABLE [Role]
+--(
+--    EmployeeId INT,
+--    RoleId INT IDENTITY(1,1),
+--    [Role] VARCHAR(20),
+--    AffectedFrom DATETIME,
+--    CONSTRAINT PK_Role_Role PRIMARY KEY(RoleId),
+--    CONSTRAINT FK_Role_Employee FOREIGN KEY(EmployeeId) REFERENCES Employee(EmployeeId)
+--);
+
+
+--INSERT INTO [Role](EmployeeId,[Role],AffectedFrom) VALUES
+--(1,'Manager',GETDATE()),
 --(2,'Executive',GETDATE()),
 --(8,'Executive',GETDATE()),
 --(5,'Manager',GETDATE()),
@@ -33,41 +63,17 @@
 --(6,'Lead',GETDATE()),
 --(3,'Lead',GETDATE());
 
---SELECT * FROM Role;
-
---CREATE TABLE Employee (
---EmployeeId INT,
---FirstName VARCHAR(20),
---LastName VARCHAR(20),
---Salary Numeric(10,2),
---JOININGDATE DATETIME,
---DepartmentId INT,
---CONSTRAINT FK_Employee_Role FOREIGN KEY (EmployeeId) REFERENCES Role(EmployeeId),
---CONSTRAINT FK_Employee_Department FOREIGN KEY (DepartmentId) REFERENCES Department (DepartmentId)
---);
-
-
---INSERT INTO Employee VALUES
---(1, 'Monika', 'Arora', 100000, '2014-02-20 09:00:00', 2),
---(2, 'Niharika', 'Verma', 80000, '2014-06-11 09:00:00', 1),
---(3, 'Vishal', 'Singal', 300000, '2014-02-20 09:00:00', 2),
---(4, 'Amitabh', 'Singh', 500000, '2014-02-20 09:00:00', 1),
---(5, 'Vivek', 'Bhati', 500000, '2014-06-11 09:00:00', 1),
---(6, 'Vipul', 'Diwan', 200000, '2014-06-11 09:00:00', 3),
---(7, 'Satish', 'Kumar', 750000, '2014-01-20 09:00:00', 3),
---(8, 'Geetika', 'Chauhan', 90000, '2014-04-11 09:00:00', 1);
-
---SELECT * FROM Employee;
+--SELECT * FROM [Role];
 
 
 --1
 --SELECT UPPER(FirstName) AS FirstName FROM Employee;
 --2
 --Get the unique name of departments from the Employee table.
---	SELECT DISTINCT 
---    (SELECT d.Name FROM Department d WHERE d.DepartmentId = e.DepartmentId) AS Department
---FROM 
---    Employee e;
+
+--SELECT DISTINCT d.Name AS Department
+--FROM Employee e
+--JOIN Department d ON e.DepartmentId = d.DepartmentId;
 
 --3
 --Print the first three characters of FirstName.
@@ -80,17 +86,14 @@
 --SELECT * FROM Employee order by FirstName ASC;
 --6
 --Print all the employees in ascending order and then in department order.
---SELECT 
---    e.EmployeeId, 
---    e.FirstName, 
---    e.LastName, 
---    e.Salary, 
---    e.JOININGDATE,
---    (SELECT d.Name FROM Department d WHERE d.DepartmentId = e.DepartmentId) AS Department
---FROM 
---    Employee e
---ORDER BY 
---    e.FirstName ASC ,Department ASC;
+
+  --SELECT  * FROM  Employee e
+  --JOIN Department d ON e.DepartmentId = d.DepartmentId
+  --ORDER BY 
+  --e.FirstName ASC,d.Name Asc
+;
+
+
 --7
 --Print the employees whose first names are 'Vipul' and 'Satish'.
 --SELECT * from Employee WHERE FirstName ='Vipul' or FirstName= 'Satish';
@@ -100,30 +103,23 @@
 --SELECT * FROM Employee WHERE FirstName NOT IN ('Vipul','Satish');
 --9
 --Print the employee whose department is "Admin".
---SELECT 
---    e.EmployeeId, 
---    e.FirstName, 
---    e.LastName, 
---    e.Salary, 
---    e.JOININGDATE
---FROM 
---    Employee e
---	WHERE
---	(SELECT d.Name FROM Department d WHERE d.DepartmentId =e.DepartmentId)='Admin';
+--SELECT  *FROM Employee e
+--JOIN  Department d ON e.DepartmentId = d.DepartmentId
+--WHERE 
+--    d.Name = 'Admin';
 --10
 --Get the list of department not assigned to any employee.
---SELECT 
---d.Name,
---d.DepartmentId
+
+--SELECT *
 --FROM
---Department d
+--    Department d
+--LEFT JOIN
+--    Employee e ON d.DepartmentId = e.DepartmentId
 --WHERE
---d.DepartmentId NOT IN(
---SELECT
---e.DepartmentId
---FROM
---Employee e
---);
+--    e.DepartmentId IS NULL;
+
+ 
+
 --11
 --Print the employee the first name containing "a".
 --SELECT * FROM Employee WHERE FirstName like '%a%';
@@ -139,32 +135,22 @@
 --14
 --Get the count of employees as per their department.
 --SELECT 
---    (SELECT Name FROM Department WHERE DepartmentId = e.DepartmentId) AS Department,
---   COUNT(e.EmployeeId) as EmployeeCount
---FROM 
---    Employee e
---GROUP BY 
---    e.DepartmentId;
---SELECT 
 --    d.Name AS Department,
---    d.DepartmentId,
---    (SELECT COUNT(e.EmployeeId) FROM Employee e WHERE e.DepartmentId = d.DepartmentId) AS EmployeeCount
---FROM
---    Department d;
+--    COUNT(e.DepartmentId) AS EmployeeCount
+--FROM 
+--    Department d
+--LEFT JOIN 
+--    Employee e ON d.DepartmentId = e.DepartmentId
+--GROUP BY 
+--    d.Name;
 
 
 --15
---Get the list of employees whose role is "Manager".
---SELECT 
---    e.EmployeeId, 
---    e.FirstName, 
---    e.LastName, 
---    e.Salary, 
---    e.JOININGDATE
---FROM 
---    Employee e
---	WHERE
---   (SELECT r.Role From Role r Where r.EmployeeId = e.EmployeeId)='Manager';
+--Get the list of employees whose role is "Manager". 
+  --SELECT * FROM Employee e
+  --JOIN  
+  --Role r ON e.EmployeeId = r.EmployeeId
+  --Where r.Role='Manager'
 
 --16
 --Write SQL query to print 2nd highest salary.
@@ -174,13 +160,13 @@
 
 --17
 --Write SQL query to print department-wise salary.
---SELECT 
---    d.Name AS Department,
---    d.DepartmentId,
---    (SELECT SUM(e.Salary) FROM Employee e WHERE e.DepartmentId = d.DepartmentId) AS TotalSalary
---FROM
---    Department d;
-
+--SELECT  d.Name AS DepartmentName,
+--  SUM(e.Salary) AS TotalSalary
+--FROM 
+--  Department d
+-- LEFT JOIN Employee e ON d.DepartmentId = e.DepartmentId
+--GROUP BY 
+--  d.Name;
 
 --SELECT * from Employee;
 --SELECT * from Department;
