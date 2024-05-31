@@ -2,7 +2,6 @@
 
 --CREATE DATABASE EmployeeData;
 --use EmployeeData;
-
 --creating tables
 --CREATE TABLE Employee (
 --EmployeeId INT IDENTITY(1,1),
