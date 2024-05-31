@@ -1,4 +1,4 @@
-﻿using AssignmentThree.Abstract;
+﻿using AssignmentThree.Override;
 using AssignmentThree.InvokeMethods;
 using AssignmentThree.InvokeOperationTwo;
 using AssignmentThree.Permutations;
@@ -48,8 +48,17 @@ namespace AssignmentThree
 
 
             //three
-            Circle circle = new Circle();
-            circle.Draw();
+            MathOperations operation = new MathOperations(10, 10);
+            double resultOne = operation.Execute();
+            Console.WriteLine(resultOne);
+
+            MathOperations addition = new AdditionOperation(10, 10);
+            double resultTwo = addition.Execute();
+            Console.WriteLine(resultTwo);
+
+            MathOperations subtraction = new SubtractionOperation(10, 10);
+            double resultThree = subtraction.Execute();
+            Console.WriteLine(resultThree);
 
             //four
             string input = "abc";
