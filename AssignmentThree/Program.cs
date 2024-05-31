@@ -1,5 +1,5 @@
 ﻿using AssignmentThree.Override;
-using AssignmentThree.InvokeMethods;
+using AssignmentThree.InvokeOperations;
 using AssignmentThree.InvokeOperationTwo;
 using AssignmentThree.Permutations;
 
@@ -7,38 +7,35 @@ namespace AssignmentThree
 {
     internal class Program
     {
-        static void ModifyPersonName(Methods methods)
-        {
-            methods.Name = "jagadish";
-        }
-        static void ModifyPersonNametwo( ref Methods methods)
-        {
-            methods.Name = "jagadish";
-        }
+     
         static void Main(string[] args)
         {
-            int num = 12;
-            int num2 = 12;
-           //one
-           Methods methods = new Methods();
-            methods.methodOne(num);
+            //one
+            int[] num = { 1, 2, 3, 4, 5 };
+            OperationsOne operations = new OperationsOne();
+            Console.WriteLine($"BeforePassingValue:num[0] : {num[0]}");
+            operations.PassByValue(num[0]);
+            Console.WriteLine($"AfterPassingValue:num[0] : {num[0]}");
 
-            int result = methods.methodTwo(ref num2);
-            Console.WriteLine(result);
+            Console.WriteLine($"BeforePassingReference:num[0] : {num[0]}");
+            operations.PassByReference(ref num[0]);
+            Console.WriteLine($"AfterPassingReference:num[0] : {num[0]}");
 
-         
-            Methods method = new Methods { Name = "ALDKSF"};
-             ModifyPersonName(method);
-            Console.WriteLine(method.Name);
 
-            Methods method3 = new Methods { Name = "ALDKSF" };
-            ModifyPersonNametwo( ref method3);
-            Console.WriteLine(method.Name);
+            Console.WriteLine($"BeforePassingReferenceTypeByValue:num[0] : {num[0]}");
+            operations.PassReferenceTypeByValue(num);
+            Console.WriteLine($"AfterPassingReferenceTypeByValue:num[0] : {num[0]}");
+
+            Console.WriteLine($"BeforePassingReferenceTypeByReference:num[0] : {num[0]}");
+            operations.PassReferenceTypeByReference(ref num);
+            Console.WriteLine($"AfterPassingReferenceTypeByReference:num[0] : {num[0]}");
+
 
             //two
             //variable
+            int numTwo = 12;
             OpeationsTwo operationsTwo = new OpeationsTwo();
-            operationsTwo.DoAdd(num);
+            operationsTwo.DoAdd(numTwo);
             operationsTwo.DoSub(10, 2);
             operationsTwo.DoMult(10 * 2);
             operationsTwo.PositionalArgs(10, 23);
