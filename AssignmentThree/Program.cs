@@ -1,6 +1,6 @@
 ﻿using AssignmentThree.Abstract;
 using AssignmentThree.InvokeMethods;
-using AssignmentThree.InvokeMethodTwo;
+using AssignmentThree.InvokeOperationTwo;
 using AssignmentThree.Permutations;
 
 namespace AssignmentThree
@@ -37,14 +37,14 @@ namespace AssignmentThree
 
             //two
             //variable
-            MethodsTwo methodsTwo = new MethodsTwo();
-            methodsTwo.DoAdd(num);
-            methodsTwo.DoSub(10, 2);
-            methodsTwo.DoMult(10 * 2);
-            methodsTwo.MethodWithPositionalArgs(10, 23);
-            methodsTwo.MethodWithOptionalArgs(10);
-            methodsTwo.MethodWithOptionalArgs(10, 30);
-            methodsTwo.MethodWithNamedArgs(a: 10, b: 20);
+            OpeationsTwo operationsTwo = new OpeationsTwo();
+            operationsTwo.DoAdd(num);
+            operationsTwo.DoSub(10, 2);
+            operationsTwo.DoMult(10 * 2);
+            operationsTwo.PositionalArgs(10, 23);
+            operationsTwo.OptionalArgs(10);
+            operationsTwo.OptionalArgs(10, 30);
+            operationsTwo.NamedArgs(a: 10, b: 20);
 
 
             //three

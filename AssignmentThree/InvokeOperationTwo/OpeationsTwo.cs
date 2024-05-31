@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace AssignmentThree.InvokeMethodTwo
+namespace AssignmentThree.InvokeOperationTwo
 {
-    internal class MethodsTwo
+    public class OpeationsTwo
     {
     //2. Create some methods in a class and Invoke them by passing:
 
@@ -27,20 +27,20 @@ namespace AssignmentThree.InvokeMethodTwo
             Console.WriteLine($"Number MULT: {num }");
         }
         //positional arguments.
-        public void MethodWithPositionalArgs(int a, int b)
+        public void PositionalArgs(int a, int b)
         {
-            Console.WriteLine($"MethodWithPositionalArgs: a = {a}, b = {b}");
+            Console.WriteLine($"PositionalArgs: a = {a}, b = {b}");
         }
 
         //optional arguments and
-        public void MethodWithOptionalArgs(int a, int b = 20)
+        public void OptionalArgs(int a, int b = 20)
         {
-            Console.WriteLine($"MethodWithOptionalArgs: a = {a}, b = {b}");
+            Console.WriteLine($"OptionalArgs: a = {a}, b = {b}");
         }
         //named arguments
-        public void MethodWithNamedArgs(int a, int b)
+        public void NamedArgs(int a, int b)
         {
-            Console.WriteLine($"MethodWithNamedArgs: a = {a}, b = {b}");
+            Console.WriteLine($"NamedArgs: a = {a}, b = {b}");
         }
 
     }
