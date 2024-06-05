@@ -1,26 +1,26 @@
-﻿using AssignmentOne.Array;
-using AssignmentOne.Interface;
-using AssignmentOne.Loops;
-using AssignmentOne.Recursion;
+﻿using ArrayAndInterface.Array;
+using ArrayAndInterface.Interface;
+using ArrayAndInterface.Loops;
+using ArrayAndInterface.Recursion;
 
-namespace AssignmentOne
+namespace ArrayAndInterface
 {
-    internal class Program
+    public class Program
     {
 
         static void Main()
         {
           //compressedstring
             Compressed compressed = new Compressed();
-            compressed.comstr("jjaaggaaddiisshh");
+            compressed.CompressedString("jjaaggaaddiisshh");
 
 
-            Commonele commonele = new Commonele();
-            commonele.commonelement();
+            CommonElement commonelement = new CommonElement();
+            commonelement.CommonElementOperationOne();
 
             //commonelement
-            Commoneletwo commoneletwo = new Commoneletwo();
-            commoneletwo.commoneletwo();
+            CommonElementTwo commonelementtwo = new CommonElementTwo();
+            commonelementtwo.CommonElementOperationTwo();
 
             //reverse number
             Reverse number = new Reverse();
@@ -32,8 +32,8 @@ namespace AssignmentOne
             int baseNumber = 5;
             int exponent = 3;
             RecursionFunction recursionFunction = new RecursionFunction();
-            recursionFunction.calculate(baseNumber, exponent);
-            Console.WriteLine($"{baseNumber} to the power of {exponent} is {recursionFunction.calculate(baseNumber, exponent)}");
+            recursionFunction.Calculate(baseNumber, exponent);
+            Console.WriteLine($"{baseNumber} to the power of {exponent} is {recursionFunction.Calculate(baseNumber, exponent)}");
 
             //Interface
             Car car = new Car(0);
@@ -44,7 +44,8 @@ namespace AssignmentOne
             car.Refuel(amt);
             car.Drive();
 
-     Console.ReadKey();
+            Console.ReadKey();
+
         }
 
 
