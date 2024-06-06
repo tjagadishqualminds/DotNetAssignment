@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AssignmentOne.Array
+namespace ArrayAndInterface.Array
 {
-    internal class Commonele
-    {
-        public void commonelement()
+    public class CommonElement { 
+    public void CommonElementOperationOne()
         {
             int[] arr = { 1, 2, 3, 4, 5, };
             int[] arr2 = { 1, 2, 3, 4, };

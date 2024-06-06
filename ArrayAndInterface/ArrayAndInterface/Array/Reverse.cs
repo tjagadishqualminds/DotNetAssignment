@@ -5,14 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AssignmentOne.Array
+namespace ArrayAndInterface.Array
 {
-    internal class Reverse
+    public class Reverse
     {
-//        Write a program to REVERSE the number
-
-
-
+  // Write a program to REVERSE the number
         public int ReversedNumber(int num)
         {
             int reverse = 0, rem;

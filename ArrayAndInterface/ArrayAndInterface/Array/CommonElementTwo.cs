@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace AssignmentOne.Array
+namespace ArrayAndInterface.Array
 {
-    internal class Commoneletwo
+    public class CommonElementTwo
     {
         //Print the elements with no of times it repeated in the array and remove duplicate elements from an Array
-
-        public void commoneletwo()
+        public void CommonElementOperationTwo()
         {
             int[] arr = { 1, 2,2,1};
             int count = 1;
@@ -33,7 +32,7 @@ namespace AssignmentOne.Array
                 }
                 count = 1;
             }
-            string result = ""
+            string result = "";
             for (int i = 0; i < arr.Length; i++)
             {
                 if (arr[i] != -1)

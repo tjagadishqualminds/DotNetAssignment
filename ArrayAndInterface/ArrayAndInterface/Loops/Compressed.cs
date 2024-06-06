@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AssignmentOne.Loops
+namespace ArrayAndInterface.Loops
 {
-    internal class Compressed
+    public class Compressed
     {
-      
-
-        public void comstr(string com)
+        public void CompressedString (string com)
         {
-          
             string result = "";
             int count = 1;
 
@@ -28,7 +25,6 @@ namespace AssignmentOne.Loops
                     result += count;
                     count = 1;
                 }
-
             }
             Console.WriteLine(result);
         }
