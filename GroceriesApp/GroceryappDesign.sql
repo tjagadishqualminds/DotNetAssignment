@@ -4,7 +4,8 @@ Use ECommerce;
  
 -- Creating table
 CREATE TABLE UserDetails(
-    UserDetailsId INT IDENTITY(1,1),
+    UserDetailsId INT IDENTITY(1,1), 
+
     CreatedBy INT,
     UpdatedBy INT,
     FirstName VARCHAR(20) NOT NULL,
