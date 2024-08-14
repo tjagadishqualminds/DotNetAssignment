@@ -29,10 +29,9 @@ namespace ArrayAndInterface
 
 
             //Recursion
-            int baseNumber = 5;
+            int baseNumber =5;
             int exponent = 3;
             RecursionFunction recursionFunction = new RecursionFunction();
-            recursionFunction.Calculate(baseNumber, exponent);
             Console.WriteLine($"{baseNumber} to the power of {exponent} is {recursionFunction.Calculate(baseNumber, exponent)}");
 
             //Interface
@@ -41,6 +40,7 @@ namespace ArrayAndInterface
             //fueladded
             Console.WriteLine("Enter amount for Refuel");
             int amt = int.Parse(Console.ReadLine());
+            
             car.Refuel(amt);
             car.Drive();
 

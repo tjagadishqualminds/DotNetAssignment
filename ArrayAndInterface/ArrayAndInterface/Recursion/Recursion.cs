@@ -15,20 +15,16 @@ namespace ArrayAndInterface.Recursion
     /// 
     /// </summary>
     /// 
-
      public class RecursionFunction{
-      public int Calculate (int baseNum,int exponentNum)
+      public int Calculate(int baseNum,int exponentNum)
         {
            if (exponentNum == 0)
             {
-                return 1;
-            }
-            else if(exponentNum%2==0){
-                return Calculate(baseNum*baseNum, exponentNum/2);
+             return 1;
             }
             else
             {
-                return baseNum*Calculate(baseNum*baseNum,(exponentNum -1)/2);
+             return baseNum*Calculate(baseNum,(exponentNum -1));
             }
         }
     }
